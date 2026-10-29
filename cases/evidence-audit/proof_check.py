@@ -45,7 +45,7 @@ def audit(doc):
     return findings
 
 def main():
-    source = json.loads((ROOT / 'synthetic_case.json').read_text(encoding='utf-8'))
+    source = json.loads((ROOT / 'synthetic_case.json').read_text(encoding='utf-8',newline='\n'))
     findings = audit(source)
     actual = {item['id']: item['status'] for item in findings}
     expected = source['expected_statuses']
@@ -61,14 +61,14 @@ def main():
         'statuses':actual,
         'limitations':'Synthetic logs only; not an LLM evaluation, not secure access enforcement, not evidence authenticity proof.'
     }
-    (ROOT/'RESULT.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (ROOT/'RESULT.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     md = ['# KAI Proof — демонстрационный аудит', '',
           'Данные вымышленные. Пример не оценивает реальную модель ИИ и не доказывает безопасность системы.', '',
           '| Событие | Решение | Почему |', '|---|---|---|']
     md += [f"| {x['id']} | {x['status']} | {x['reason']} |" for x in findings]
     md += ['', f"Подтверждено: {verified}; выявлено/заблокировано: {len(findings)-verified}.",
            'PASS означает совпадение с заранее заданным тестовым эталоном, а не доказанное снижение ошибок реального ИИ.']
-    (ROOT/'REPORT.md').write_text('\n'.join(md)+'\n',encoding='utf-8')
+    (ROOT/'REPORT.md').write_text('\n'.join(md)+'\n',encoding='utf-8',newline='\n')
     for x in findings: print(f"{x['id']}: {x['status']}")
     print(f'PASS: {len(findings)}/{len(findings)} synthetic checks. REPORT.md and RESULT.json created.')
     return 0
