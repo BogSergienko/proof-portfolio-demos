@@ -1,0 +1,113 @@
+{
+  "description": "Fully synthetic finance workflow: all records and identities are fictional. No external network.",
+  "evidence": {
+    "ORDER-101": {
+      "version": 3,
+      "data": {
+        "refund_rub": 1400,
+        "customer_id": "C-101"
+      },
+      "checksum": "efe0705e63cc23066b85a3f6e28186ce19ffa42902f78293b9b76f958152d92e"
+    },
+    "INVOICE-102": {
+      "version": 2,
+      "data": {
+        "order_total_rub": 5900,
+        "tax_rub": 900
+      },
+      "checksum": "1c3b5bb42118c09c951198bb2004a92df361788bb4aeb9b9ce7763d9feee1d1b"
+    },
+    "ORDER-102": {
+      "version": 1,
+      "data": {
+        "refund_rub": 1800,
+        "customer_id": "C-102"
+      },
+      "checksum": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "stopped_tasks": [
+    "REFUND-101"
+  ],
+  "agent_actions": [
+    {
+      "id": "EV-01",
+      "task_id": "REFUND-101",
+      "claim": "Refund is 1400 RUB",
+      "evidence_id": "ORDER-101",
+      "evidence_version": 3,
+      "field": "refund_rub",
+      "claimed_value": 1400,
+      "effect": "read_only"
+    },
+    {
+      "id": "EV-02",
+      "task_id": "TAX-102",
+      "claim": "Tax is 900 RUB",
+      "evidence_id": "INVOICE-102",
+      "evidence_version": 2,
+      "field": "tax_rub",
+      "claimed_value": 900,
+      "effect": "read_only"
+    },
+    {
+      "id": "EV-03",
+      "task_id": "REFUND-101",
+      "claim": "Refund is 2800 RUB",
+      "evidence_id": "ORDER-101",
+      "evidence_version": 3,
+      "field": "refund_rub",
+      "claimed_value": 2800,
+      "effect": "read_only"
+    },
+    {
+      "id": "EV-04",
+      "task_id": "REFUND-103",
+      "claim": "Refund is 1000 RUB",
+      "evidence_id": "ORDER-103",
+      "evidence_version": 1,
+      "field": "refund_rub",
+      "claimed_value": 1000,
+      "effect": "read_only"
+    },
+    {
+      "id": "EV-05",
+      "task_id": "TAX-102",
+      "claim": "Tax is 900 RUB",
+      "evidence_id": "INVOICE-102",
+      "evidence_version": 1,
+      "field": "tax_rub",
+      "claimed_value": 900,
+      "effect": "read_only"
+    },
+    {
+      "id": "EV-06",
+      "task_id": "REFUND-102",
+      "claim": "Refund is 1800 RUB",
+      "evidence_id": "ORDER-102",
+      "evidence_version": 1,
+      "field": "refund_rub",
+      "claimed_value": 1800,
+      "effect": "read_only"
+    },
+    {
+      "id": "EV-07",
+      "task_id": "REFUND-101",
+      "claim": "Send refund 1400 RUB",
+      "evidence_id": "ORDER-101",
+      "evidence_version": 3,
+      "field": "refund_rub",
+      "claimed_value": 1400,
+      "effect": "write"
+    }
+  ],
+  "expected_statuses": {
+    "EV-01": "VERIFIED",
+    "EV-02": "VERIFIED",
+    "EV-03": "VALUE_MISMATCH",
+    "EV-04": "UNVERIFIED",
+    "EV-05": "STALE_VERSION",
+    "EV-06": "INTEGRITY_FAIL",
+    "EV-07": "BLOCKED_STOP"
+  }
+}

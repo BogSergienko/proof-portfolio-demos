@@ -1,0 +1,16 @@
+{
+  "title": "KAI Proof / bounded synthetic audit",
+  "tests_passed": 7,
+  "verified_claims": 2,
+  "flagged_or_blocked": 5,
+  "statuses": {
+    "EV-01": "VERIFIED",
+    "EV-02": "VERIFIED",
+    "EV-03": "VALUE_MISMATCH",
+    "EV-04": "UNVERIFIED",
+    "EV-05": "STALE_VERSION",
+    "EV-06": "INTEGRITY_FAIL",
+    "EV-07": "BLOCKED_STOP"
+  },
+  "limitations": "Synthetic logs only; not an LLM evaluation, not secure access enforcement, not evidence authenticity proof."
+}
