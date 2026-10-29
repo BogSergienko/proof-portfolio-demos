@@ -1,4 +1,6 @@
 name: Reproduce synthetic demos
+env:
+  PYTHONUTF8: "1"
 on:
   push:
   pull_request:
