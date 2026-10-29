@@ -40,4 +40,4 @@ These are **examples of problem-solving**, not commercial integrations or proof 
 
 This is a demonstration portfolio. **No reuse license is granted yet**; ask the owner before redistribution or derivative commercial use. No passwords, account access, or private materials are needed to review it. If you need a similar tool, define a specific task and acceptance criteria first.
 
-[Technical evidence and reproduction notes](EVIDENCE.md) · [Russian short description](PITCH_RU.md) · [Publication checklist](PUBLISH_CHECKLIST.md)
+[Technical evidence and reproduction notes](EVIDENCE.md) · [Russian short description](PITCH_RU.md) · [Publication notes](PUBLICATION.md)
