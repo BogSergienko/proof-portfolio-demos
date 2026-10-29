@@ -2,7 +2,7 @@
 
 **Work you can see, run, and check.** Two *synthetic*, self-contained Python examples using only the standard library. No external API, live customer data, personal messages or internal research code.
 
-**[Open the visual portfolio](docs/index.html)** (can also be served through GitHub Pages by selecting `/docs` on the `main` branch).
+**[Open the visual portfolio](https://bogsergienko.github.io/proof-portfolio-demos/index.html)** — a public GitHub Pages site.
 
 | Case | Problem | Reproducible result | Start |
 |---|---|---|---|
