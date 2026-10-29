@@ -45,7 +45,7 @@ def audit(doc):
     return findings
 
 def main():
-    source = json.loads((ROOT / 'synthetic_case.json').read_text(encoding='utf-8',newline='\n'))
+    source = json.loads((ROOT / 'synthetic_case.json').read_text(encoding='utf-8'))
     findings = audit(source)
     actual = {item['id']: item['status'] for item in findings}
     expected = source['expected_statuses']

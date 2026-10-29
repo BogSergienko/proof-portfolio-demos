@@ -90,6 +90,6 @@ metrics = {
     "выручка_после_возвратов_руб": sum(x["итог_руб"] for x in summaries),
     "демо": "полностью синтетические данные, не реальные продажи",
 }
-(ROOT / "04_Показатели.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8",newline="\n")
+(ROOT / "04_Показатели.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
 print(json.dumps(metrics, ensure_ascii=False, indent=2))
 assert metrics["входных_строк"] == metrics["проверенных_строк"] + metrics["проблемных_строк"]
